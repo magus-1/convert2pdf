@@ -56,7 +56,7 @@ This will allow us to push docker images from our local machine.
 To build the image from the Dockerfile, we will use Cloud Build as shown below:
 
 ```bash
-$ gcloud builds submit --tag $REGION- docker.pkg.dev/$PROJECT_ID/cloudrun-images/convert2pdf:latest
+$ gcloud builds submit --region $REGION --tag docker.pkg.dev/$PROJECT_ID/cloudrun-images/convert2pdf:latest
 ```
 
 ### 6. Deploy Cloud Run API
