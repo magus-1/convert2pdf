@@ -37,7 +37,6 @@ $ gcloud artifacts repositories create cloudrun-images \
 --repository-format=docker \
 --location=$REGION \
 --description="images for cloud run deploy" \
---immutable-tags \
 --async
 ```
 
@@ -56,7 +55,7 @@ This will allow us to push docker images from our local machine.
 To build the image from the Dockerfile, we will use Cloud Build as shown below:
 
 ```bash
-$ gcloud builds submit --region $REGION --tag $REGION-docker.pkg.dev/$PROJECT_ID/cloudrun-images/convert2pdf:latest
+$ gcloud builds submit --region $REGION --tag $REGION-docker.pkg.dev/$PROJECT_ID/cloudrun-images/convert2pdf
 ```
 
 ### 6. Deploy Cloud Run API
@@ -68,7 +67,7 @@ $ gcloud run deploy convert2pdf \
 --image $REGION-docker.pkg.dev/$PROJECT_ID/cloudrun-images/convert2pdf \
 --platform managed \
 --region $REGION \
---allow-unauthenticated 
+--allow-unauthenticated
 ```
 
 ### 7. Test API
